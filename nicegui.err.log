@@ -1,0 +1,30 @@
+'UploadEventArguments' object has no attribute 'content'
+Traceback (most recent call last):
+  File "C:\Users\LEOCIACH\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\nicegui\events.py", line 480, in _await_and_handle_in_context
+    await awaitable
+  File "C:\Users\LEOCIACH\Documents\New project\app.py", line 507, in handle_upload
+    attachment = build_attachment(e)
+  File "C:\Users\LEOCIACH\Documents\New project\app.py", line 163, in build_attachment
+    raw = e.content.read()
+          ^^^^^^^^^
+AttributeError: 'UploadEventArguments' object has no attribute 'content'
+'UploadEventArguments' object has no attribute 'content'
+Traceback (most recent call last):
+  File "C:\Users\LEOCIACH\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\nicegui\events.py", line 480, in _await_and_handle_in_context
+    await awaitable
+  File "C:\Users\LEOCIACH\Documents\New project\app.py", line 507, in handle_upload
+    attachment = build_attachment(e)
+  File "C:\Users\LEOCIACH\Documents\New project\app.py", line 163, in build_attachment
+    raw = e.content.read()
+          ^^^^^^^^^
+AttributeError: 'UploadEventArguments' object has no attribute 'content'
+'UploadEventArguments' object has no attribute 'content'
+Traceback (most recent call last):
+  File "C:\Users\LEOCIACH\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\nicegui\events.py", line 480, in _await_and_handle_in_context
+    await awaitable
+  File "C:\Users\LEOCIACH\Documents\New project\app.py", line 507, in handle_upload
+    attachment = build_attachment(e)
+  File "C:\Users\LEOCIACH\Documents\New project\app.py", line 163, in build_attachment
+    raw = e.content.read()
+          ^^^^^^^^^
+AttributeError: 'UploadEventArguments' object has no attribute 'content'

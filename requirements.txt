@@ -1,0 +1,4 @@
+nicegui>=3.11
+groq>=1.1
+pygments>=2.19
+pypdf>=6.0

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ALUETOO AI Pro</title>
+    <meta
+      name="description"
+      content="ALUETOO AI Pro, assistant IA moderne cree par Leo Ciach."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07080d;
+        --glass: rgba(255, 255, 255, 0.1);
+        --line: rgba(255, 255, 255, 0.18);
+        --text: #f7f7fb;
+        --muted: rgba(247, 247, 251, 0.68);
+        --blue: #0a84ff;
+        --pink: #ff375f;
+        --green: #32d74b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 18% 12%, rgba(10, 132, 255, 0.22), transparent 30%),
+          radial-gradient(circle at 84% 18%, rgba(255, 55, 95, 0.18), transparent 30%),
+          linear-gradient(135deg, #080a10, #10131c 48%, #090a0f);
+        color: var(--text);
+      }
+
+      .shell {
+        min-height: 100vh;
+        padding: 22px;
+        display: grid;
+        place-items: center;
+      }
+
+      .app {
+        width: min(1120px, 100%);
+        min-height: min(760px, calc(100vh - 44px));
+        border: 1px solid var(--line);
+        border-radius: 34px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
+          var(--glass);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.22),
+          0 28px 90px rgba(0, 0, 0, 0.44);
+        backdrop-filter: blur(34px) saturate(1.45);
+        overflow: hidden;
+      }
+
+      header {
+        padding: 18px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-weight: 700;
+      }
+
+      .mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--blue), var(--pink));
+        box-shadow: 0 14px 34px rgba(10, 132, 255, 0.28);
+      }
+
+      nav {
+        display: flex;
+        gap: 10px;
+      }
+
+      .pill,
+      .button {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 650;
+      }
+
+      .pill {
+        padding: 9px 14px;
+        color: var(--muted);
+      }
+
+      main {
+        padding: 72px 56px 48px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        gap: 40px;
+        align-items: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(46px, 7vw, 86px);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        background: linear-gradient(90deg, #fff, #64d2ff, #ffd6e2, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .lead {
+        margin: 24px 0 0;
+        max-width: 620px;
+        color: var(--muted);
+        font-size: clamp(18px, 2vw, 23px);
+        line-height: 1.5;
+      }
+
+      .actions {
+        margin-top: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        padding: 13px 18px;
+      }
+
+      .primary {
+        border-color: rgba(10, 132, 255, 0.58);
+        background: linear-gradient(135deg, rgba(10, 132, 255, 0.92), rgba(94, 92, 230, 0.84));
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06)),
+          rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      .chat {
+        display: grid;
+        gap: 14px;
+      }
+
+      .bubble {
+        max-width: 86%;
+        padding: 13px 15px;
+        border-radius: 20px;
+        color: var(--text);
+        line-height: 1.45;
+      }
+
+      .ai {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom-left-radius: 6px;
+      }
+
+      .user {
+        justify-self: end;
+        background: linear-gradient(135deg, var(--blue), #5e5ce6);
+        border-bottom-right-radius: 6px;
+      }
+
+      .composer {
+        margin-top: 18px;
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--muted);
+      }
+
+      .send {
+        margin-left: auto;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: var(--blue);
+        color: white;
+        font-weight: 700;
+      }
+
+      .note {
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 820px) {
+        .shell {
+          padding: 10px;
+        }
+
+        .app {
+          border-radius: 24px;
+        }
+
+        header,
+        main {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        nav {
+          display: none;
+        }
+
+        main {
+          grid-template-columns: 1fr;
+          padding-top: 42px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <section class="app">
+        <header>
+          <div class="brand">
+            <div class="mark">AI</div>
+            <span>ALUETOO AI Pro</span>
+          </div>
+          <nav>
+            <span class="pill">Vision</span>
+            <span class="pill">Streaming</span>
+            <span class="pill">Artefacts</span>
+          </nav>
+        </header>
+
+        <main>
+          <section>
+            <h1>ALUETOO AI</h1>
+            <p class="lead">
+              Une interface IA moderne, rapide et multimodale, pensee pour les
+              discussions, les fichiers, les images et les projets entre amis.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#demo">Voir l'aperçu</a>
+              <a class="button" href="https://github.com/azbner/aluetoo-ai-the-final-web" target="_blank" rel="noreferrer">Code source</a>
+            </div>
+            <p class="note">
+              GitHub Pages affiche seulement cette vitrine statique. L'assistant
+              complet NiceGUI doit tourner sur un serveur Python.
+            </p>
+          </section>
+
+          <section class="panel" id="demo" aria-label="Aperçu de l'interface">
+            <div class="chat">
+              <div class="bubble ai">Salut, je suis ALUETOO. Ajoute une image, un PDF ou une question.</div>
+              <div class="bubble user">Analyse ce document et fais-moi un résumé clair.</div>
+              <div class="bubble ai">Bien reçu. Je peux lire le contexte, structurer la réponse et isoler les longs contenus en artefacts.</div>
+            </div>
+            <div class="composer">
+              <span>Message à ALUETOO...</span>
+              <span class="send">Envoyer</span>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+  </body>
+</html>
